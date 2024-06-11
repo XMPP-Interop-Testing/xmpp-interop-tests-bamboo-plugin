@@ -1,0 +1,33 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <resource type="i18n" name="English language" location="english"/>
+
+    <!-- add our web resources -->
+    <web-resource key="bambootask-resources" name="bambootask Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="bambootask.css" location="/css/bambootask.css"/>
+        <resource type="download" name="bambootask.js" location="/js/bambootask.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>bambootask</context>
+    </web-resource>
+
+    <taskType name="XMPP Interop Testing" class="io.github.xmppinteroptesting.bambootask.ExecuteInteropTestsTask" key="xmppinteroptesting">
+        <description>A task that invokes the XMPP Interop Testing suite</description>
+        <category name="test"/>
+        <resource type="freemarker" name="edit" location="editExecuteInteropTestsTask.ftl"/>
+        <configuration class="io.github.xmppinteroptesting.bambootask.ExecuteInteropTestsTaskConfigurator"/>
+        <executable key="sintexecutable" nameKey="xmppinteroptesting.executable.name" pathHelpKey="xmppinteroptesting.executable.pathHelp"/>
+        <executable key="buildJdk" nameKey="xmppinteroptesting.buildJdk.name"/>
+        <resource type="download" name="icon" location="images/pluginLogo.png"/>
+    </taskType>
+
+</atlassian-plugin>
