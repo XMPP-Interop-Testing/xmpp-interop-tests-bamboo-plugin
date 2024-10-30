@@ -42,6 +42,8 @@ public class ExecuteInteropTestsTaskConfigurator extends AbstractTaskConfigurato
         config.put(ADMIN_ACCOUNT_PASSWORD, params.getString(ADMIN_ACCOUNT_PASSWORD));
         config.put(DISABLED_TESTS, params.getString(DISABLED_TESTS));
         config.put(DISABLED_SPECIFICATIONS, params.getString(DISABLED_SPECIFICATIONS));
+        config.put(ENABLED_TESTS, params.getString(ENABLED_TESTS));
+        config.put(ENABLED_SPECIFICATIONS, params.getString(ENABLED_SPECIFICATIONS));
         config.put(SINTEXECUTABLE, params.getString(SINTEXECUTABLE));
         config.put(BUILDJDK, params.getString(BUILDJDK));
         return config;
@@ -89,6 +91,8 @@ public class ExecuteInteropTestsTaskConfigurator extends AbstractTaskConfigurato
         context.put(ADMIN_ACCOUNT_PASSWORD, taskDefinition.getConfiguration().get(ADMIN_ACCOUNT_PASSWORD));
         context.put(DISABLED_TESTS, taskDefinition.getConfiguration().get(DISABLED_TESTS));
         context.put(DISABLED_SPECIFICATIONS, taskDefinition.getConfiguration().get(DISABLED_SPECIFICATIONS));
+        context.put(ENABLED_TESTS, taskDefinition.getConfiguration().get(ENABLED_TESTS));
+        context.put(ENABLED_SPECIFICATIONS, taskDefinition.getConfiguration().get(ENABLED_SPECIFICATIONS));
         context.put(SINTEXECUTABLE, taskDefinition.getConfiguration().get(SINTEXECUTABLE));
         context.put(BUILDJDK, taskDefinition.getConfiguration().get(BUILDJDK));
 

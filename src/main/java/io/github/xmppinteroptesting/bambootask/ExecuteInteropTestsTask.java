@@ -48,6 +48,8 @@ public class ExecuteInteropTestsTask implements TaskType
             final String accountPassword = config.get(ADMIN_ACCOUNT_PASSWORD);
             final String disabledTests = config.get(DISABLED_TESTS);
             final String disabledSpecifications = config.get(DISABLED_SPECIFICATIONS);
+            final String enabledTests = config.get(ENABLED_TESTS);
+            final String enabledSpecifications = config.get(ENABLED_SPECIFICATIONS);
             final String sintExecutable = config.get(SINTEXECUTABLE);
             final String buildJdk = config.get(BUILDJDK);
 
@@ -81,10 +83,16 @@ public class ExecuteInteropTestsTask implements TaskType
                 command.add("-Dsinttest.adminAccountPassword=" + accountPassword);
             }
             if (!StringUtils.isBlank(disabledTests)) {
-                command.add("-Dsinttest.disabledTests=" + accountUsername);
+                command.add("-Dsinttest.disabledTests=" + disabledTests);
             }
             if (!StringUtils.isBlank(disabledSpecifications)) {
-                command.add("-Dsinttest.disabledSpecifications=" + accountUsername);
+                command.add("-Dsinttest.disabledSpecifications=" + disabledSpecifications);
+            }
+            if (!StringUtils.isBlank(enabledTests)) {
+                command.add("-Dsinttest.enabledTests=" + enabledTests);
+            }
+            if (!StringUtils.isBlank(enabledSpecifications)) {
+                command.add("-Dsinttest.enabledSpecifications=" + enabledSpecifications);
             }
             command.add("-Dsinttest.securityMode=disabled");
             command.add("-Dsinttest.enabledConnections=tcp");
