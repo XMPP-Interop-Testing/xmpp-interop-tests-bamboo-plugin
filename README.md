@@ -40,6 +40,6 @@ The tests are executed using dedicated accounts. These accounts are created by t
 
 If the former method is desired, then you should provide the credentials of an administrative user in the task configuration. When these credentials are not provided, then the latter method will be used to provision test accounts.
 
-Finally, you can provide a comma-separated list of tests that are to be skipped (For example: `EntityCapsTest,SoftwareInfoIntegrationTest`), or specifications (not case-sensitive) that are to be skipped (For example: `XEP-0045,XEP-0060`).
+Finally, you can provide a comma-separated list of tests that are to be skipped (For example: `EntityCapsTest,SoftwareInfoIntegrationTest`), or specifications (not case-sensitive) that are to be skipped (For example: `XEP-0045,XEP-0060`). Similarly, to limit execution to a subset of tests, you can specify enabled tests or specifications.
 
 For more information, please visit our project website at [https://xmpp-interop-testing.github.io/](https://xmpp-interop-testing.github.io/)
