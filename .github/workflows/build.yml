@@ -23,12 +23,11 @@ jobs:
           cache: maven
       - name: Install Atlassian SDK
         run: |
-          wget https://marketplace.atlassian.com/download/plugins/atlassian-plugin-sdk-tgz
-          mkdir atlassian-plugin-sdk
-          tar -xvzf atlassian-plugin-sdk-9.0.2.tar.gz -C atlassian-plugin-sdk
-          ./atlassian-plugin-sdk/atlas-version
-      - name: Build with Maven # We install instead of package, because we want the result in the local mvn repo
-        run: ./atlassian-plugin-sdk/9.0.2/libexec/apache-maven-3.9.8/bin/mvn --update-snapshots package
+          wget -q https://maven.artifacts.atlassian.com/com/atlassian/amps/atlassian-plugin-sdk/9.1.1/atlassian-plugin-sdk-9.1.1.tar.gz
+          tar -xzf atlassian-plugin-sdk-9.1.1.tar.gz
+          ./atlassian-plugin-sdk-9.1.1/bin/atlas-version
+      - name: Build with Maven
+        run: ./atlassian-plugin-sdk-9.1.1/apache-maven-3.9.8/bin/mvn --update-snapshots package
       - name: Stash the built artifacts
         uses: actions/upload-artifact@v4
         if: ${{ matrix.java == 8}}
