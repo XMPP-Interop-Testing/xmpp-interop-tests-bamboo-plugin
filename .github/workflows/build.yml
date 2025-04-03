@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 8 ]
+        java: [ 11 ]
         distribution: [ temurin ] # We could add more here: temurin, adopt, liberica, microsoft, corretto
     steps:
       - uses: actions/checkout@v4
@@ -27,10 +27,10 @@ jobs:
           tar -xzf atlassian-plugin-sdk-9.1.1.tar.gz
           ./atlassian-plugin-sdk-9.1.1/bin/atlas-version
       - name: Build with Maven
-        run: ./atlassian-plugin-sdk-9.1.1/apache-maven-3.9.8/bin/mvn --update-snapshots package
+        run: ./atlassian-plugin-sdk-9.1.1/apache-maven-3.9.8/bin/mvn --batch-mode --update-snapshots package
       - name: Stash the built artifacts
         uses: actions/upload-artifact@v4
-        if: ${{ matrix.java == 8}}
+        if: ${{ matrix.java == 11}}
         with:
           name: bamboo-plugin
           path: target/*.jar
