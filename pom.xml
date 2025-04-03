@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.xmppinteroptesting</groupId>
     <artifactId>bambootask</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1-SNAPSHOT</version>
 
     <organization>
         <name>XMPP Interop Testing</name>
