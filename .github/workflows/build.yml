@@ -1,0 +1,37 @@
+name: Build
+
+on: [pull_request]
+
+permissions:
+  checks: write
+
+jobs:
+  build-java:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 8 ]
+        distribution: [ temurin ] # We could add more here: temurin, adopt, liberica, microsoft, corretto
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK ${{ matrix.java }} ${{ matrix.distribution }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: ${{ matrix.distribution }}
+          cache: maven
+      - name: Install Atlassian SDK
+        run: |
+          wget https://marketplace.atlassian.com/download/plugins/atlassian-plugin-sdk-tgz
+          mkdir atlassian-plugin-sdk
+          tar -xvzf atlassian-plugin-sdk-9.0.2.tar.gz -C atlassian-plugin-sdk
+          ./atlassian-plugin-sdk/atlas-version
+      - name: Build with Maven # We install instead of package, because we want the result in the local mvn repo
+        run: ./atlassian-plugin-sdk/9.0.2/libexec/apache-maven-3.9.8/bin/mvn --update-snapshots package
+      - name: Stash the built artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ matrix.java == 8}}
+        with:
+          name: bamboo-plugin
+          path: target/*.jar
