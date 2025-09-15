@@ -46,6 +46,12 @@ public class ExecuteInteropTestsTask implements TaskType
             final Long timeout = config.getAsLong(TIMEOUT);
             final String accountUsername = config.get(ADMIN_ACCOUNT_USERNAME);
             final String accountPassword = config.get(ADMIN_ACCOUNT_PASSWORD);
+            final String accountOneUsername = config.get(ACCOUNT_ONE_USERNAME);
+            final String accountOnePassword = config.get(ACCOUNT_ONE_PASSWORD);
+            final String accountTwoUsername = config.get(ACCOUNT_TWO_USERNAME);
+            final String accountTwoPassword = config.get(ACCOUNT_TWO_PASSWORD);
+            final String accountThreeUsername = config.get(ACCOUNT_THREE_USERNAME);
+            final String accountThreePassword = config.get(ACCOUNT_THREE_PASSWORD);
             final String disabledTests = config.get(DISABLED_TESTS);
             final String disabledSpecifications = config.get(DISABLED_SPECIFICATIONS);
             final String enabledTests = config.get(ENABLED_TESTS);
@@ -81,6 +87,24 @@ public class ExecuteInteropTestsTask implements TaskType
             }
             if (!StringUtils.isBlank(accountPassword)) {
                 command.add("-Dsinttest.adminAccountPassword=" + accountPassword);
+            }
+            if (!StringUtils.isBlank(accountOneUsername)) {
+                command.add("-Dsinttest.accountOneUsername=" + accountOneUsername);
+            }
+            if (!StringUtils.isBlank(accountOnePassword)) {
+                command.add("-Dsinttest.accountOnePassword=" + accountOnePassword);
+            }
+            if (!StringUtils.isBlank(accountTwoUsername)) {
+                command.add("-Dsinttest.accountTwoUsername=" + accountTwoUsername);
+            }
+            if (!StringUtils.isBlank(accountTwoPassword)) {
+                command.add("-Dsinttest.accountTwoPassword=" + accountTwoPassword);
+            }
+            if (!StringUtils.isBlank(accountThreeUsername)) {
+                command.add("-Dsinttest.accountThreeUsername=" + accountThreeUsername);
+            }
+            if (!StringUtils.isBlank(accountThreePassword)) {
+                command.add("-Dsinttest.accountThreePassword=" + accountThreePassword);
             }
             if (!StringUtils.isBlank(disabledTests)) {
                 command.add("-Dsinttest.disabledTests=" + disabledTests);
