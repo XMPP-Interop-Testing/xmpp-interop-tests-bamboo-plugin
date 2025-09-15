@@ -40,6 +40,12 @@ public class ExecuteInteropTestsTaskConfigurator extends AbstractTaskConfigurato
         config.put(TIMEOUT, params.getString(TIMEOUT));
         config.put(ADMIN_ACCOUNT_USERNAME, params.getString(ADMIN_ACCOUNT_USERNAME));
         config.put(ADMIN_ACCOUNT_PASSWORD, params.getString(ADMIN_ACCOUNT_PASSWORD));
+        config.put(ACCOUNT_ONE_USERNAME, params.getString(ACCOUNT_ONE_USERNAME));
+        config.put(ACCOUNT_ONE_PASSWORD, params.getString(ACCOUNT_ONE_PASSWORD));
+        config.put(ACCOUNT_TWO_USERNAME, params.getString(ACCOUNT_TWO_USERNAME));
+        config.put(ACCOUNT_TWO_PASSWORD, params.getString(ACCOUNT_TWO_PASSWORD));
+        config.put(ACCOUNT_THREE_USERNAME, params.getString(ACCOUNT_THREE_USERNAME));
+        config.put(ACCOUNT_THREE_PASSWORD, params.getString(ACCOUNT_THREE_PASSWORD));
         config.put(DISABLED_TESTS, params.getString(DISABLED_TESTS));
         config.put(DISABLED_SPECIFICATIONS, params.getString(DISABLED_SPECIFICATIONS));
         config.put(ENABLED_TESTS, params.getString(ENABLED_TESTS));
@@ -89,6 +95,12 @@ public class ExecuteInteropTestsTaskConfigurator extends AbstractTaskConfigurato
         context.put(TIMEOUT, taskDefinition.getConfiguration().get(TIMEOUT));
         context.put(ADMIN_ACCOUNT_USERNAME, taskDefinition.getConfiguration().get(ADMIN_ACCOUNT_USERNAME));
         context.put(ADMIN_ACCOUNT_PASSWORD, taskDefinition.getConfiguration().get(ADMIN_ACCOUNT_PASSWORD));
+        context.put(ACCOUNT_ONE_USERNAME, taskDefinition.getConfiguration().get(ACCOUNT_ONE_USERNAME));
+        context.put(ACCOUNT_ONE_PASSWORD, taskDefinition.getConfiguration().get(ACCOUNT_ONE_PASSWORD));
+        context.put(ACCOUNT_TWO_USERNAME, taskDefinition.getConfiguration().get(ACCOUNT_TWO_USERNAME));
+        context.put(ACCOUNT_TWO_PASSWORD, taskDefinition.getConfiguration().get(ACCOUNT_TWO_PASSWORD));
+        context.put(ACCOUNT_THREE_USERNAME, taskDefinition.getConfiguration().get(ACCOUNT_THREE_USERNAME));
+        context.put(ACCOUNT_THREE_PASSWORD, taskDefinition.getConfiguration().get(ACCOUNT_THREE_PASSWORD));
         context.put(DISABLED_TESTS, taskDefinition.getConfiguration().get(DISABLED_TESTS));
         context.put(DISABLED_SPECIFICATIONS, taskDefinition.getConfiguration().get(DISABLED_SPECIFICATIONS));
         context.put(ENABLED_TESTS, taskDefinition.getConfiguration().get(ENABLED_TESTS));

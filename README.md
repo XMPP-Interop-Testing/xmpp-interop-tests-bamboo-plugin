@@ -33,12 +33,14 @@ The Build JDK that is selected needs to be Java 11 or higher.
 
 To interact with the server, fill out the IP address (or hostname) of the server that was started in the previous job. Also provide the name of the XMPP domain that is serviced by that server. When the server is running on local hardware, then there should not be a reason to increase the default timeout value.
 
-The tests are executed using dedicated accounts. These accounts are created by the test framework in one of two ways:
-
+The tests are executed using dedicated accounts. These accounts are created by the test framework in one of three ways:
 - by using an administrative account (per [XEP-0133](https://xmpp.org/extensions/xep-0133.html))
+- by explicitly providing three accounts
 - using in-band registration (per [XEP-0077](https://xmpp.org/extensions/xep-0077.html))
 
-If the former method is desired, then you should provide the credentials of an administrative user in the task configuration. When these credentials are not provided, then the latter method will be used to provision test accounts.
+If the first method is desired, then you should provide the credentials of an administrative user in the task configuration. Alternatively, three sets of test accounts can be provided. When none of these credentials are provided, then the last method will be used to provision test accounts.
+
+For more information on provisioning accounts, consult the ['Test Account Provisioning' guide](https://xmpp-interop-testing.github.io/documentation/provisioning-accounts).
 
 Finally, you can provide a comma-separated list of tests that are to be skipped (For example: `EntityCapsTest,SoftwareInfoIntegrationTest`), or specifications (not case-sensitive) that are to be skipped (For example: `XEP-0045,XEP-0060`). Similarly, to limit execution to a subset of tests, you can specify enabled tests or specifications.
 
