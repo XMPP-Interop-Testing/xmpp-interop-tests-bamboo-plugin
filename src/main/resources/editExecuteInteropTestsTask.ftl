@@ -15,3 +15,4 @@
 [@ww.textfield labelKey="xmppinteroptesting.enabledSpecifications" name="enabledSpecifications" required='false'/]
 [@ww.textfield labelKey="xmppinteroptesting.disabledTests" name="disabledTests" required='false'/]
 [@ww.textfield labelKey="xmppinteroptesting.disabledSpecifications" name="disabledSpecifications" required='false'/]
+[@ww.checkbox labelKey="xmppinteroptesting.failOnImpossibleTest" name="failOnImpossibleTest" required='false'/]
