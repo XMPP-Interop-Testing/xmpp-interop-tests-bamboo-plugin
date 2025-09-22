@@ -56,6 +56,7 @@ public class ExecuteInteropTestsTask implements TaskType
             final String disabledSpecifications = config.get(DISABLED_SPECIFICATIONS);
             final String enabledTests = config.get(ENABLED_TESTS);
             final String enabledSpecifications = config.get(ENABLED_SPECIFICATIONS);
+            final String failOnImpossibleTest = config.get(FAIL_ON_IMPOSSIBLE_TEST);
             final String sintExecutable = config.get(SINTEXECUTABLE);
             final String buildJdk = config.get(BUILDJDK);
 
@@ -117,6 +118,9 @@ public class ExecuteInteropTestsTask implements TaskType
             }
             if (!StringUtils.isBlank(enabledSpecifications)) {
                 command.add("-Dsinttest.enabledSpecifications=" + enabledSpecifications);
+            }
+            if (!StringUtils.isBlank(failOnImpossibleTest)) {
+                command.add("-Dsinttest.failOnImpossibleTest=" + Boolean.parseBoolean(failOnImpossibleTest));
             }
             command.add("-Dsinttest.securityMode=disabled");
             command.add("-Dsinttest.enabledConnections=tcp");
